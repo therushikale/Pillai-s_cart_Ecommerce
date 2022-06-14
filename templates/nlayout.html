@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Pillai"s cart</title>
+  
+
+
+ 
+  <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{{ url_for('static',filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static',filename='css/clean-blog.min.css') }}" rel="stylesheet">
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Pillais cart</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Admin/1360">Home</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Addproduct">Add Product</a>
+          </li>
+          <style>
+.dropbtn {
+  background-color:white;
+  color: black;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 8px 6px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color:white;
+}
+</style>
+</head>
+<body>
+
+<div class="dropdown">
+  <button class="dropbtn">Add label</button>
+  <div class="dropdown-content">
+  <a href="/addbrand">Brand</a>
+  <a href="/addcat">Category</a>
+ 
+  </div>
+</div>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="/brands">Brand</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/category">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user">User</a>
+          </li>
+          
+           
+ 
+
+
+
+        
+        
+      </div>
+    </div>
+  </nav>
+</div>
+</head>
+
+<body>
+
+ 
+
+
+{% block body %}  {% endblock %}
+
+
+
+<hr>
+
+  <!-- Footer -->
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://mobile.twitter.com/cartpillai"  target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-square fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://m.facebook.com/Pillais-cart-104230638433162/" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-square fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/Pillais_cart"  target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-square fa-stack-2x"></i>
+                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Pillai"s cart</p>
+        </div>
+      </div>
+    </div>
+  </footer> 
+
+
+</body>
+
+</html>

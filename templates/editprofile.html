@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% from "_formhelpers.html" import render_field %}
+  
+
+
+
+<div class="login">
+    <div class="form">
+        <img id="img1" src="{{ url_for('static',filename='img/lock.jpg') }}" alt="">
+       
+        {{form.csrf_token}}
+        {% from "_formhelpers.html" import render_field %}
+        {% include "messages.html" %}
+            <form action="" method="POST" enctype="multipart/form-data">
+	          {{ render_field(form.name , class="form-control",placeholder="Add your name",style="width:100%")}}
+		        {{ render_field(form.email, class="form-control", placeholder="Add your email",style="width:100%")}}
+            {{ render_field(form.gender, class="form-control",placeholder="Add gender",style="width:100%")}}
+		        {{ render_field(form.contact, class="form-control",placeholder="Add contact",style="width:100%")}}
+            {{ render_field(form.address, class="form-control",placeholder="Add address",style="width:100%")}}
+            {{ render_field(form.pincode, class="form-control",placeholder="Add pincode",style="width:100%")}}
+            {{ render_field(form.city , class="form-control",placeholder="city",style="width:100%") }}
+
+            {{ render_field(form.profile , class="form-control",placeholder="profile",style="width:100%") }}
+
+        <button type="submit" >Update profile</button>
+
+      </form>  
+    </div>
+
+  
+  <style>
+
+body {
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+}
+
+.login {
+  width: 500px;
+  padding: 8% 0 0;
+  margin: auto;
+  font-family: 'Comfortaa', cursive;
+}
+
+.form {
+  z-index: 1;
+  background: powderblue;
+  border-radius: 10px;
+  max-width: 160%;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+
+}
+.site-footer{
+       display: none;
+     }
+
+.form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #182848;
+  font-family: 'Comfortaa', cursive;
+}
+
+.form input:focus {
+  background:pink;
+}
+
+.form button {
+  font-family: 'Comfortaa', cursive;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4b6cb7;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form button:active {
+  background: #395591;
+}
+#flash{
+    color: red;
+}
+.form span {
+  font-size: 75px;
+  color:rebeccapurple;
+}
+#img1{
+    border-radius: 50px;
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+    .form {
+  width: 320px;
+  margin-left: 5px;
+  position: relative;
+  
+}
+.login {
+  width: 200px;
+  padding: 8% 0 0;
+  margin: auto;
+  margin-left: 20px;
+  font-family: 'Comfortaa', cursive;
+}
+a{
+  font-size: 13px;
+}
+
+}
+  </style>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+
+{% extends "nlayout.html" %}
+
+{% block body %}
+
+{% include 'messages.html' %}
+
+<div class="container">
+  <table class="table table-sm table-condensed table-striped table-hover">
+    <thead>
+      <th>Sno</th>
+      <th>name</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </thead>
+    <tbody>
+      {% if brands %}
+      {% for brand in brands %}
+      
+      <tr>
+        <td>{{loop.index}}</td>
+        <td>{{brand.name}}</td>
+        <td><a href="{{url_for('updatebrand',id=brand.id)}}" class="btn btn-outline-info">Edit</a></td>
+        <td>
+        <form action="{{url_for('deletebrand',id=brand.id)}}" method="POST" value="{{brand.name}}">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>           
+        </td> 
+      </tr>
+    
+
+      {% endfor%}
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

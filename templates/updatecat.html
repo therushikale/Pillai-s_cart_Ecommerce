@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<header class="masthead" style="background-image: url('{{ url_for('static',filename='img/login2.png') }} ')">
+
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1></h1>
+            <span class="subheading"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<div  class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      {% include "messages.html" %}
+        {% if updatecat %}
+        <h1 class="text-center mt-5">Add a category</h1>
+        <form action="" method="POST">
+          <input type="text" name="brand" class="form-control" value="{{updatecat.name}}">
+          <input type="submit" value="Update brand" class="btn btn-info mt-4" style="margin-right: -400px">
+        </form>
+        <a href="{{url_for('brands')}}" class="btn btn-warning" style="margin-top: -60px ;margin-right: -400px">cancel</a>
+        {% else %}
+        <h1 class="text-center mt-5">Add a category</h1>
+        <form action="" method="POST">
+          <input type="text" name="brand" class="form-control" value="{{updatecat.name}}">
+          <input type="submit" value="Update category" class="btn btn-info mt-4">
+        </form>
+        {% endif %}
+    </div>
+    <div class="col-md-3"></div>
+
+  </div>
+</div>
+
+{% endblock %}

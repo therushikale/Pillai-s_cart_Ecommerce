@@ -1,0 +1,43 @@
+
+{% extends "nlayout.html" %}
+
+{% block body %}
+
+{% include 'messages.html' %}
+
+
+<div class="container">
+  <table class="table table-sm table-condensed table-striped table-hover">
+    <thead>
+      <th>Sno</th>
+      <th>name</th>
+      <th>email</th>
+      <th>Phone_no</th>
+      <th>City</th>
+      <th>Address</th>
+    </thead>
+    <tbody>
+      {% if userd %}
+      {% for user1 in userd %}
+      
+      <tr>
+        <td>{{loop.index}}</td>
+        <td>{{user1.name}}</td>
+        <td>{{user1.email}}</td>
+        <td>{{user1.contact}}</td>
+        <td>{{user1.city}}</td>
+        <td>{{user1.address}}</td>
+
+
+        <td><td>
+          </td>
+        
+      </tr>
+
+      {% endfor%}
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

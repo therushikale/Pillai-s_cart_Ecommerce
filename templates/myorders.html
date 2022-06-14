@@ -1,0 +1,150 @@
+
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+
+  <table width="100%">
+    <tr>
+      <td></td>
+    </tr>
+  </table> 
+  <br><h3  style="text-align: left;">Your contact details</h3><br>
+  <table id="table1" style="border-collapse: collapse;">
+    <tr>
+      <td width="180px" class="column-title">Email<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.email}}<td>
+    </tr>
+    <tr>
+      <td class="column-title"> First & Last name<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.name}}<td>
+    </tr>
+    <tr>
+      <td class="column-title">Address<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.address}}<td>
+    </td>
+    <tr>
+      <td class="column-title">Phone<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.contact}}<td>
+    </tr>
+  </table>
+
+</table> 
+<br><h3 style="text-align: left; color: blue;">Your product details</h3><br>
+{% for key,product in orders.orders.items() %}
+{% set discount="%0.2f" |format((product.discount/100) * product.price|float) %} 
+<table id="table1" style="border-collapse: collapse;">
+  
+  <tr>
+    <td width="180px" class="column-title">Product NO<td>
+    <td class="column-detail">&nbsp;&nbsp;{{loop.index}}<td>
+  </tr>
+  <tr>
+    <td width="180px" class="column-title">Product Id<td>
+    <td class="column-detail">&nbsp;&nbsp;{{orders.invoice}}<td>
+  </tr>
+  <tr>
+    <td class="column-title">Product name<td>
+    <td class="column-detail">&nbsp;&nbsp;{{product.name}}<td>
+  </tr>
+  <tr>
+    <td class="column-title">Color<td>
+    <td class="column-detail">&nbsp;&nbsp;{{product.color}}<td>
+  </td>
+  <tr>
+    <tr>
+      <td class="column-title">Size<td>
+      <td class="column-detail">&nbsp;&nbsp;{{product.size}}<td>
+    </td>
+    <tr>
+    <td class="column-title">Quantity<td>
+    <td class="column-detail">&nbsp;&nbsp;{{product.quantity}}<td>
+  </tr>
+  <tr>
+    <td class="column-title" >Price<td>
+    <td class="column-detail" style="color: royalblue;">&nbsp;&nbsp;₹{{"%0.0f"|format((product.price|float) - product.price|int*product.discount*0.01|float)}}<td>
+  </tr>
+  <tr>
+    <td class="column-title">Payement<td>
+    <td class="column-detail" style="color: red;">&nbsp;&nbsp;{{orders.status}}<td>
+  </tr>
+
+</table>
+{% endfor %}
+<div class="alert" style="background-color:skyblue">Tax : ₹{{"%0.2f"|format(tax|float)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; total Price-₹{{grandTotal}}</div>
+
+{% if orders.status == "Paid" %}
+
+<div class="alert" style="color: blue;">Thank you for payment,Your order will be received in a few days.</div>
+{% else %}
+<div class="alert" style="color: red;">Please pay and you will get your product</div>
+
+{% endif %}
+</div>
+
+<style>
+  body {font-family:  
+    Helvetica, sans-serif;
+    /* font-size:13px; */
+    margin-top: 20px;
+  }
+.container{max-width: 680px; margin:0 auto;margin-top: 40px;}
+.logotype{background:#000;color:#fff;width:75px;height:75px;  line-height: 75px; text-align: center; font-size:11px;}
+.column-title{background:#eee;text-transform:uppercase;padding:15px 5px 15px 15px;font-size:11px;}
+.column-detail{border-top:1px solid #eee;border-bottom:1px solid #eee;width: 200px;}
+.column-header{background:#eee;text-transform:uppercase;padding:15px;font-size:11px;border-right:1px solid #eee;}
+.row{padding:7px 14px;border-left:1px solid #eee;border-right:1px solid #eee;}
+.alert{background: #ffd9e8;padding:20px;margin:20px 0;line-height:22px;color:#333}
+.socialmedia{background:black;padding:20px; display:inline-block;border-radius: 20px;margin-left:23px;}
+.alert1{
+  color: red;
+}
+td{
+  color: black;
+  
+}
+h3{
+  color: black;
+  font-size: 24px;
+  margin-left: 20px;
+
+}
+/* 
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+  td{
+  color: black;
+  width:"40px";
+
+  
+}
+.table1{
+  width: 50%;
+  margin-left: 22px;
+}
+.table2{
+    width: 80%;
+}
+tr{
+  width: 50%;
+}
+.column-detail{
+  width: 50%;
+}
+.row{padding:2px 4px;border-left:1px solid #eee;border-right:1px solid #eee;}
+
+}
+h3{
+  margin-left: 94px;
+  margin-bottom: 5%;
+}
+td{
+    width: 2%;
+}
+.column-header{
+    width: 2%;
+}
+ */
+
+</style>
+
+{% endblock %}

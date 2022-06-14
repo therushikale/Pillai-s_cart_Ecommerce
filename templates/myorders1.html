@@ -1,0 +1,97 @@
+
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+
+  <table width="100%">
+    <tr>
+      <td></td>
+    </tr>
+  </table> 
+  <br><h3>Your contact details</h3><br>
+  <table  style="border-collapse: collapse;">
+    <tr>
+      <td  class="column-title">Email<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.email}}<td>
+    </tr>
+    <tr>
+      <td class="column-title"> First & Last name<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.name}}<td>
+    </tr>
+    <tr>
+      <td class="column-title">Address<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.address}}<td>
+    </td>
+    <tr>
+      <td class="column-title">Phone<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.contact}}<td>
+    </tr>
+    <tr>
+      <td class="column-title">Country<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.country}}<td>
+    </tr>
+    <tr>
+      <td class="column-title">City<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.city}}<td>
+    </tr>
+    <tr>
+      <td class="column-title">Pincode<td>
+      <td class="column-detail">&nbsp;&nbsp;{{current_user.pincode}}<td>
+    </tr>
+  </table>
+<br></div><br>
+
+
+  
+<style>
+  body {font-family:  
+    Helvetica, sans-serif;
+    /* font-size:13px; */
+    margin-top: 20px;
+  }
+  
+.container{max-width: 680px; margin:0 auto;margin-top: 40px;}
+.logotype{background:#000;color:#fff;width:75px;height:75px;  line-height: 75px; text-align: center; font-size:11px;}
+.column-title{background:#eee;text-transform:uppercase;padding:15px 5px 15px 15px;font-size:14px}
+.column-detail{border-top:1px solid #eee;border-bottom:1px solid #eee;}
+.column-header{background:#eee;text-transform:uppercase;padding:15px;font-size:11px;border-right:1px solid #eee;}
+.row{padding:7px 14px;border-left:1px solid #eee;border-right:1px solid #eee;}
+.alert{background: #ffd9e8;padding:20px;margin:20px 0;line-height:22px;color:#333}
+.socialmedia{background:black;padding:20px; display:inline-block;border-radius: 20px;}
+td{
+  color: black;
+  width:"280px";
+}
+h3{
+  color: black;
+  margin-left: 20px;
+}
+/* @media only screen and (min-width: 300px) and (max-width: 600px) {
+  td{
+  color: black;
+  width:"40px";
+
+  
+}
+table{
+  width: 80%;
+  margin-left: 22px;
+}
+tr{
+  width: 50%;
+}
+.column-detail{
+  width: 50%;
+}
+.row{padding:2px 4px;border-left:1px solid #eee;border-right:1px solid #eee;}
+
+}
+h3{
+  margin-left: 94px;
+  margin-bottom: 5%;
+} */
+
+</style>
+
+{% endblock %}

@@ -1,0 +1,122 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Get pdf</title>
+  </head>
+  <body>
+  
+
+
+        <div class="container mt-4">
+          {% include "messages.html" %}
+            <div class="row">
+              <div class="col-md-12"></div>
+              <br>
+              Id:  {{orders.invoice}}
+              <br style="color: red;">Status:  {{orders.status}}
+              <br>
+
+              Customer name:  {{customer.name}}
+              <br>
+              Customer email:  {{customer.email}}
+              <br>
+              Customer contact:  {{customer.contact}}
+              <br>
+              .
+              <br>
+
+         <table class="table table-sm">
+                <thead>
+                  <th  style="width:5%">Sr</th>
+                  <th style="width:15%">Name</th>
+                  <th  style="width:12%">Color</th>
+                  <th  style="width:10%">Price</th>
+                  <th style="width:10%">Quantity</th>
+                  <th style="width:12%">Discount</th>
+                  <th style="width:12%">Subtotal</th>
+                  
+                </thead>
+              <tbody>
+                  {% for key,product in orders.orders.items() %}
+                  {% set discount=((product.discount/100) * product.price|float) %} 
+
+                  <tr>
+                    <td>{{loop.index}}</td>
+                    
+                    
+         
+                    <td>{{product.name}}</td>
+                  <td>
+                      {{product.color|capitalize}}
+                  </td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.quantity}}</td>
+
+                    {% if product.discount > 0%}
+
+                    <td>{{product.discount}}% &nbsp; is {{discount}} Rs</td>
+                    {% else %}
+
+                    <td>
+                      {{product.colors|capitalize}}
+                    </td>
+                    {% endif %}
+                    {% set subtotal =product.quantity|int*product.price|float%}
+
+                    <td>{{"%0.2f"|format((subTotal|float) - discount|float)}}</td>
+
+                    
+                  </tr>
+                  {% endfor %}
+                 
+              </tbody>
+            <table class="table table-sm">
+               <tr>
+                    <td></td>
+                    <td >
+                     <form action="{{url_for('payment')}}" method="POST">
+                      <input type="hidden"  name="amount" value="{{amount}}">
+                      <input type="hidden"  name="invoice" value="{{orders.invoice}}">
+
+                        <script
+                          src="https://checkout.stripe.com/checkout.js"
+                          class="stripe-button"
+                          data-key="pk_test_51JtBNVSFLOkZfdqMagdwkOU7PCMke7XshQKWjjph1N5Hu0yz6fWJBgAdFlQlN5NF1WJDO1AdherBopRjgNAfsHiQ00eoeNLGt8"
+                          data-name="Pillai's cart"
+                          data-description="If you cant stop thinking about it.. Buy it."
+                                              
+                          data-amount="{{amount}}"
+                          data-currency="INR">
+                        </script>
+                      </form>
+                   </td>
+                    <td colspan="4" ><h4>Tax : {{"%0.2f"|format(tax|float)}} Rs</h4></td>
+                    <td colspan="4"><h4>Total : {{grandTotal}} Rs</h4></td>
+                    <td>
+                      <form action="{{url_for('get_pdf',invoice=orders.invoice)}}" method="post">
+                        <button type="submit" class="btn-info">Get Receipt</button>
+                      </form>
+                    </td>
+
+                  </tr>
+                </table>   
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

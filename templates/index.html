@@ -1,0 +1,171 @@
+
+
+
+{% extends "layout.html" %}
+{% block body %}
+
+  <!-- Page Header -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+
+  </head>
+  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <div id="demo" class="carousel slide" data-ride="carousel">
+  
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="/home"><img src="{{ url_for('static',filename='img/home10.gif') }}" alt="home3" width="1300" height="400"></a>
+      </div>
+         
+    </div>
+    
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+<!--   
+  </body>
+  </html> -->
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <li class="alert alert-{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<style>
+@media screen and (min-width : 200px) and (max-width : 800px) {
+  img{
+    width: 200px;
+    height: 200px;
+  }
+}
+  img {
+    width: 100%;
+  }
+  .top-left {
+  position: absolute;
+  top: -140px;
+  left: -44px;
+}
+.top-left1 {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+}
+.top-left2 {
+  position: absolute;
+  top: -50px;
+  left: 70px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+@media only screen and (min-width : 200px) and (max-width : 800px){
+    h1 {font-size: 1em}
+    h4 {font-size:0.7em;}
+    p {font-size: 0.3em;}
+}
+</style>
+<body><br>
+<span class="heading">  
+ 
+ <h4 class="text-banner-subtitle"></h4></div>
+  <H1 align="center" class="text-banner-title" id ="title1" style="color:black">DEALS OF THE TODAY</H1>
+
+
+
+
+
+
+<style>
+  * {
+     box-sizing: border-box;
+  }
+  .imageColumn {
+     float: left;
+     width: 25%;
+     height: 400px;
+     padding: 40px;
+  }
+  h1{
+     text-align: center;
+  }
+  @media only screen and (min-width :280px) and (max-width :700px){
+    .imageColumn {
+     float: left;
+     width: 50%;
+     height: 250px;
+     padding: 20px;
+     
+  }
+  }
+  @media only screen and (min-width :700px) and (max-width :1100px){
+    .imageColumn {
+     float: left;
+     width:25%;
+     height: 250px;
+     padding: 20px;
+     
+  }
+  }
+  </style>
+
+      <div class="card">
+        <div class="alignRow">
+
+        <a href="/home"><img class="imageColumn" src="{{ url_for('static',filename='img/pant.jpg') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img3.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img4.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img5.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img6.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img15.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img22.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img20.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img7.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img9.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img10.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img11.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img12.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img13.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img14.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/home25.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img17.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img16.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img18.webp') }}" alt="Card image" >
+        <img class="imageColumn" src="{{ url_for('static',filename='img/img19.webp') }}" alt="Card image" ></a>
+
+
+        
+        </div>
+        
+
+
+</body>
+</html>
+
+
+  {% endblock %}

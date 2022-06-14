@@ -1,0 +1,108 @@
+
+{% extends "nlayout.html" %}
+
+{% block body %}
+
+{% include 'messages.html' %}
+
+
+<div class="container">
+  <table class="table table-sm table-condensed table-striped">
+    <thead>
+      <th style="width: 5%;">Sno</th>
+      <th style="width:15%;">Product</th>
+      <th>Price</th>
+      <th>Disount</th>
+      <th>Brand</th>
+      <th>Image</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </thead>
+    <tbody>
+      {% for product in products %}
+      {% set fname ='img/'+ product.image_1%}
+      <tr>
+        <td>{{loop.index}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.discount}}%</td>
+        <td>{{product.brand.name}}</td>
+        <td><img src="{{ url_for('static',filename=fname) }}"  width="100" height="150"></td>
+        <td> <a href="{{url_for('updateproduct',id=product.id)}}" class="update"> Edit</a></td>
+            <td> 
+              <form action="{{url_for('deleteproduct',id=product.id)}}" method="POST" value="{{product.name}}">
+                <button type="submit" class="remove">Delete</button>
+              </form> 
+            </td>
+      </tr>
+      {% endfor%}
+    </tbody>
+  </table>
+</div>
+<style>
+  
+.remove {
+  background-color: #ec1818;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.remove:hover,
+.remove:focus {
+  background-color: #fcd2b0;
+}
+.update {
+  background-color: #2ba7ee;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.update:hover,
+.update:focus {
+  background-color: #d94be6;
+}
+</style>
+
+{% endblock %}
